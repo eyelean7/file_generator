@@ -1,0 +1,6 @@
+<h1><%= @project.address %></h1>
+
+<h3>Client: <%= @client.name %></h3>
+<h3>Description: <%= @project.description %></h3>
+<h3>Price: $<%= @project.price %></h3>
+<%= link_to "Edit this Project", edit_client_project_path(@client, @project) %>
