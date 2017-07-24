@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search/' => 'search#index'
   resources :projects, only: [:index]
   resources :clients do
     resources :projects, except: [:index]

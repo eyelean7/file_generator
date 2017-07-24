@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+
+<% if @clients.any? %>
+  <h2>Related Clients</h2>
+  <ul>
+    <% @clients.each do |client| %>
+      <li><%= link_to client.name, client_path(client) %></li>
+    <% end %>
+  </ul>
+<% end %>
+<% if @projects.any? %>
+  <h2>Related Projects</h2>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.address, client_project_path(project.client, project) %></li>
+    <% end %>
+  </ul>
+<% end %>
