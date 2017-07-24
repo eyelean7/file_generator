@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to client_path(@client)
+      redirect_to client_project_path(@client, @project)
     else
       render :edit
     end
