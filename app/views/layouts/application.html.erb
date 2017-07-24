@@ -9,6 +9,24 @@
   </head>
 
   <body>
+    <div class="nav">
+        <ul>
+          <li class = nav nav-tab><%= link_to "All Clients", clients_path %></li>
+          <li class = nav nav-tab><%= link_to "All Projects", projects_path %></li>
+          <% if false %>
+            <% if !current_user %>
+            <li class = nav nav-tab><%= link_to "Sign In", new_user_session_path %></li>
+            <% else %>
+            <li class = nav nav-tab><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            <% end %>
+            <% if is_admin? %>
+            <li class = nav nav-tab><%= link_to "New Package", new_package_path %></li>
+            <% end %>
+          <% end %>
+
+          <%= yield(:navbar) %>
+        </ul>
+      </div>
     <div class="container">
       <%= yield %>
     </div>

@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  def index
+    @projects = Project.all
+  end
   def show
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
