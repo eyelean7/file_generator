@@ -1,5 +1,8 @@
 <h1><%= @client.name %></h1>
 
+<h3><%= @client.phone %></h3>
+<h3><%= @client.billing_address %></h3>
+<h3><%= @client.name %>'s Projects</h3>
 <ul>
   <% @projects.each do |project| %>
     <li><%= link_to project.address, client_project_path(@client, project) %></li>
