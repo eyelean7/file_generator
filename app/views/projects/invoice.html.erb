@@ -2,10 +2,10 @@
 <h1>John Martin</h1>
 <h2>Structural Engineering, Inc.</h2>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-8">
     9221 April Lane</br>Mokena, Illinois 60448
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     Phone (708) 479-8133
   </div>
 </div>
@@ -13,42 +13,65 @@
   <h2>invoice</h2>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <p><%= @client.name %></p>
-    <p><%= @client.billing_address %></p>
+  <div class="col-md-8">
+    <%= @client.name %></br>
+    <%= @client.billing_address %>
   </div>
-  <div class="col-md-6">
-    <p><%= @date %></p>
-    <p>Job #<%= @job_number %></p>
+  <div class="col-md-4">
+    <%= @date %></br>
+    Job #<%= @job_number %>
   </div>
 </div>
+</br>
 <div class="row">
   <p>RE: <%= @project.address %></p>
 </div>
 <div class="row">
-  
+  <div class="col-md-5">
+    <p>Description of Work</p>
+  </div>
+  <div class="col-md-2">
+    <p>Quantity</p>
+  </div>
+  <div class="col-md-2">
+    <p>Rate</p>
+  </div>
+  <div class="col-md-3">
+    <p>Total Due</p>
+  </div>
 </div>
-Description of Work			Quantity		Rate			          Total Due
+<hr>
+<div class="row">
+  <% if false %>
+  <% @project.tasks.each do |task| %>
+  <div class="col-md-5">
+    <%= task.description %>
+  </div>
+  <div class="col-md-2">
+    <%= task.quantity %>
+  </div>
+  <div class="col-md-2">
+    <%= task.rate %>
+  </div>
+  <div class="col-md-3">
+    <% if task.quantity && task.rate%>
+    $<%= task.quanitity*task.rate%>
+    <% else %>
+    $<%= task.rate %>
+    <% end %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
 
-{{ledger_item.each do}}
+<p>Total Due Upon Receipt..................................................................................$[total due]</p>
+<hr>
 
-[description]		 		[quantity] 	$[rate]				$[price]
-
-{{end}}
-_____________________________________________________________________________________
-
-Total Due Upon Receipt…..…………………………………………………………………..…..$[total due]
-
-Dear [client.name.first],
-
-This is our invoice for the above-referenced project. Please send a check payable to John Martin Structural Engineering, Inc. for the total due. If you prefer to pay online, we can accept payments electronically
-through Chase Quickpay. The email address to use is: jgorski.jmse@gmail.com.
-
-It was a pleasure working with you. If you have any questions about this project, or if you are in further need of our assistance, please feel free to call me. Thank you for calling John Martin Structural Engineering.
-
-Sincerely,
-John Martin Structural Engineering, Inc.
-
-Jean F. Gorski
-
-Jean F. Gorski Secretary-Treasurer
+<p>Dear <%= @client.name %>,</p>
+<p>This is our invoice for the above-referenced project. Please send a check payable to John Martin Structural Engineering, Inc. for the total due. If you prefer to pay online, we can accept payments electronically
+through Chase Quickpay. The email address to use is: jgorski.jmse@gmail.com.</p>
+<p>It was a pleasure working with you. If you have any questions about this project, or if you are in further need of our assistance, please feel free to call me. Thank you for calling John Martin Structural Engineering.</p>
+<p>Sincerely,</p>
+<p>John Martin Structural Engineering, Inc.</p>
+<p id='signature'>Jean F. Gorski</p>
+<p>Jean F. Gorski</p>
