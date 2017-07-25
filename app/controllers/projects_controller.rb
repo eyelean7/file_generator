@@ -7,7 +7,17 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
   def invoice
+    date = Time.now
+    @date = date.month.to_s+"-"+date.day.to_s+"-"+date.year.to_s
     @project = Project.find(params[:project_id])
+    @client = @project.client
+    @job_number = @project.id
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"
+      end
+    end
   end
   def new
     @client = Client.find(params[:client_id])
