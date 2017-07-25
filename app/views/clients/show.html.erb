@@ -12,4 +12,5 @@
 <% end %>
 <hr>
 <%= link_to "Add a new project for this client", new_client_project_path(@client) %></br>
+<%= link_to "Edit", edit_client_path(@client) %></br>
 <%= link_to "Delete", client_path(@client), :data => {:confirm => "Are you sure? This deletes the client and all associated projects and can not be undone.", :method => "delete"} %>
