@@ -1,0 +1,12 @@
+<%= render "layouts/errors", :object => @client %>
+
+
+<%= form_for @client do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :billing_address %>
+  <%= f.text_field :billing_address %><br>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %><br>
+  <%= f.submit  %>
+<% end %>

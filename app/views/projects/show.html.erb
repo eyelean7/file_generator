@@ -1,6 +1,6 @@
 <h1><%= @project.address %></h1>
 
-<h3>Client: <%= @client.name %></h3>
+<h3>Client: <%= link_to @client.name, client_path(@client) %></h3>
 <h3>Description: <%= @project.description %></h3>
 <h3>Price: $<%= @project.price %></h3>
 <h3>File Name: </h3>
