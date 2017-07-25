@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
   end
+  def invoice
+    @project = Project.find(params[:project_id])
+  end
   def new
     @client = Client.find(params[:client_id])
     @project = @client.projects.new()

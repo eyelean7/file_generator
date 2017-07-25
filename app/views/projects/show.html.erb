@@ -5,6 +5,7 @@
 <h3>Price: $<%= @project.price %></h3>
 <h3>File Name: </h3>
 <span id="invoice"><%= link_to "Generate Invoice", client_project_path(@client, @project) %></span></br>
+<%= link_to "HTML invoice", project_invoice_path(@project) %></br>
 <%= link_to "Add Leger Entry", edit_client_project_path(@client, @project) %></br>
 <%= link_to "Edit this Project", edit_client_project_path(@client, @project) %></br>
 <%= link_to "Delete", client_project_path(@client, @project), :data => {:confirm => "Are you sure? This deletes the entire project and can not be undone.", :method => "delete"} %>
