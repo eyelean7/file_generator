@@ -4,17 +4,16 @@
     <title>FileGenerator</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src='//js.zapjs.com/js/download.js'></script>
-
   </head>
 
   <body>
     <div class="nav">
         <ul>
-          <li class = nav nav-tab><%= link_to "All Clients", clients_path %></li>
-          <li class = nav nav-tab><%= link_to "All Projects", projects_path %></li>
+          <li class = nav nav-tab><%= link_to "Clients", clients_path %></li>
+          <li class = nav nav-tab><%= link_to "Projects", projects_path %></li>
           <%= form_tag(search_path, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Projects" %>
             <%= submit_tag "Search", :name => nil %>

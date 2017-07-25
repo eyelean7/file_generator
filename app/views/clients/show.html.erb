@@ -6,7 +6,9 @@
 <h3><%= @client.name %>'s Projects</h3>
 <ul>
   <% @projects.each do |project| %>
-    <li><%= link_to project.address, client_project_path(@client, project) %></li>
+    <li><%= link_to "Project "+project.address, client_project_path(@client, project) %></li>
   <% end %>
 </ul>
 <% end %>
+<hr>
+<%= link_to "Add a new project for this client", new_client_project_path(@client) %>

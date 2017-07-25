@@ -6,6 +6,19 @@ class ProjectsController < ApplicationController
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
   end
+  def new
+    @client = Client.find(params[:client_id])
+    @project = @client.projects.new()
+  end
+  def create
+    @client = Client.find(params[:client_id])
+    @project = @client.projects.new(project_params)
+    if @project.save
+      redirect_to client_project_path(@client, @project)
+    else
+      render :new
+    end
+  end
   def edit
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
@@ -18,6 +31,11 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
