@@ -15,16 +15,19 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
+    @project = Project.find(params[:project_id])
     @job = @project.jobs.new()
   end
 
   # GET /jobs/1/edit
   def edit
+
   end
 
   # POST /jobs
   # POST /jobs.json
   def create
+    @project = Project.find(params[:project_id])
     @job = @project.jobs.new(job_params)
 
     respond_to do |format|
@@ -43,7 +46,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to project_job_path(@project, @job), notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -57,7 +60,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to project_jobs_path(@project), notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +74,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:description, :hours)
+      params.require(:job).permit(:description, :hours, :rate)
     end
 end

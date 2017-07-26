@@ -55,7 +55,7 @@
   </div>
   <div class="col-md-3">
     <% if job.hours && job.rate%>
-    $<%= job.quanitity*job.rate%>
+    $<%= job.hours*job.rate%>
     <% else %>
     $<%= job.rate %>
     <% end %>
