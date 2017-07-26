@@ -1,0 +1,30 @@
+
+<h1>Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Hours</th>
+      <th>Project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project.jobs.each do |job| %>
+      <tr>
+        <td><%= job.description %></td>
+        <td><%= job.hours %></td>
+        <td><%= job.project %></td>
+        <td><%= link_to 'Show', project_job_path(@project, job) %></td>
+        <td><%= link_to 'Edit', edit_project_job_path(@project, job) %></td>
+        <td><%= link_to 'Destroy', project_job_path(@project, job), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_project_job_path(@project) %>

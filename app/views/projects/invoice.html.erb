@@ -42,22 +42,22 @@
 </div>
 <hr>
 <div class="row">
-  <% if false %>
-  <% @project.tasks.each do |task| %>
+  <% if @project.jobs.any? %>
+  <% @project.jobs.each do |job| %>
   <div class="col-md-5">
-    <%= task.description %>
+    <%= job.description %>
   </div>
   <div class="col-md-2">
-    <%= task.quantity %>
+    <%= job.hours %>
   </div>
   <div class="col-md-2">
-    <%= task.rate %>
+    <%= job.rate %>
   </div>
   <div class="col-md-3">
-    <% if task.quantity && task.rate%>
-    $<%= task.quanitity*task.rate%>
+    <% if job.hours && job.rate%>
+    $<%= job.quanitity*job.rate%>
     <% else %>
-    $<%= task.rate %>
+    $<%= job.rate %>
     <% end %>
   </div>
   <% end %>
