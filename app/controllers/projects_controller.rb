@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
   def invoice
+    # file_name = @project.id +" _ "+ @client.name +" - "+ @project.address
     date = Time.now
     @date = date.month.to_s+"-"+date.day.to_s+"-"+date.year.to_s
     @project = Project.find(params[:project_id])
@@ -15,7 +16,9 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name"
+        render pdf: "file_name",
+        :disposition => "inline",
+        :template => "projects/invoice.pdf.erb"
       end
     end
   end
