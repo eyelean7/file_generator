@@ -1,42 +1,44 @@
-
-<h1>John Martin</h1>
-<h2>Structural Engineering, Inc.</h2>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<h1 style="text-align:center">John Martin</h1>
+<h2 style="text-align:center">Structural Engineering, Inc.</h2>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-xs-8">
     9221 April Lane</br>Mokena, Illinois 60448
   </div>
-  <div class="col-md-4">
+  <div class="col-xs-4">
     Phone (708) 479-8133
   </div>
 </div>
+<h2 style="text-align:center">invoice</h2>
 <div class="row">
-  <h2>invoice</h2>
-</div>
-<div class="row">
-  <div class="col-md-8">
+  <div class="col-xs-8">
     <%= @client.name %></br>
     <%= @client.billing_address %>
   </div>
-  <div class="col-md-4">
+  <div class="col-xs-4">
     <%= @date %></br>
     Job #<%= @job_number %>
   </div>
 </div>
 </br>
 <div class="row">
-  <p>RE: <%= @project.address %></p>
+  <div class="col-xs-12">
+    <p>RE: <%= @project.address %></p>
+  </div>
 </div>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-xs-5">
     <p>Description of Work</p>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-2">
     <p>Quantity</p>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-2">
     <p>Rate</p>
   </div>
-  <div class="col-md-3">
+  <div class="col-xs-3">
     <p>Total Due</p>
   </div>
 </div>
@@ -44,16 +46,16 @@
 <div class="row">
   <% if @project.jobs.any? %>
   <% @project.jobs.each do |job| %>
-  <div class="col-md-5">
+  <div class="col-xs-5">
     <%= job.description %>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-2">
     <%= job.hours %>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-2">
     <%= job.rate %>
   </div>
-  <div class="col-md-3">
+  <div class="col-xs-3">
     <% if job.hours && job.rate%>
     $<%= job.hours*job.rate%>
     <% else %>
@@ -73,5 +75,6 @@ through Chase Quickpay. The email address to use is: jgorski.jmse@gmail.com.</p>
 <p>It was a pleasure working with you. If you have any questions about this project, or if you are in further need of our assistance, please feel free to call me. Thank you for calling John Martin Structural Engineering.</p>
 <p>Sincerely,</p>
 <p>John Martin Structural Engineering, Inc.</p>
-<p id='signature'>Jean F. Gorski</p>
+<p style="font-family: Brush Script MT;
+  font-size: 30pt";>Jean F. Gorski</p>
 <p>Jean F. Gorski</p>

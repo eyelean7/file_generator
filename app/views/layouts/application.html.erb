@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>FileGenerator</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src='//js.zapjs.com/js/download.js'></script>
+    <%= wicked_pdf_stylesheet_link_tag "/Users/Ilene/Desktop/file_generator/app/assets/stylesheets" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
 
   <body>

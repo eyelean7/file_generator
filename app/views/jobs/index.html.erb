@@ -1,5 +1,5 @@
 
-<h1>Jobs</h1>
+<h1>Jobs for <%= @project.address %></h1>
 
 <table>
   <thead>
@@ -28,5 +28,5 @@
 </table>
 
 <br>
-
+<%= link_to "HTML invoice", project_invoice_path(@project) %></br>
 <%= link_to 'New Job', new_project_job_path(@project) %>
