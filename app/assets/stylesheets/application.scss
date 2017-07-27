@@ -14,12 +14,34 @@
  *= require_self
  */
  @import "bootstrap";
-
+body {
+  background-image: url("background.jpg");
+  color: white;
+}
+.jumbotron {
+  background-color: #3d495e;
+}
 h1, h2 {
   text-align: center;
 }
-
+a {
+  color: white;
+}
+a:hover {
+  color: #ffbfd4;
+}
 #signature {
   font-family: Brush Script MT;
   font-size: 30pt;
+}
+
+#nav {
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
