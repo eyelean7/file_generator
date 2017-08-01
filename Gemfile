@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # convert html to pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

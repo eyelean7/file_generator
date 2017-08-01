@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authorize_user
   def index
     @clients = Client.all
   end
@@ -28,7 +29,7 @@ class ClientsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @client = Client.find(params[:id])
     @client.projects.destroy_all
