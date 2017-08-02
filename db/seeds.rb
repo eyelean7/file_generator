@@ -5,5 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Job.destroy_all
+Project.destroy_all
 Client.destroy_all
-clients = Client.create([{ name: 'Joe Shmoe', phone: '(708)123-1234', billing_address: '123 Fake Ave, Mokena, IL'}, { name: 'Me Myself', phone: '(708)567-5678', billing_address: '456 Unreal Street, Chicago, IL'}])
+clients = Client.create([{ name: 'Joe Shmoe', phone: '(708)123-1234', billing_address: '775 Orchard Road, Mokena, IL'}])
+projects = Project.create([{ address: '1422 Lilo Lane, Mokena, IL', description: 'addition on west side', client_id: clients.last.id }])
+jobs = Job.create([{ description: 'initial inspection', hours: 4, rate: 85.00, project_id: projects.last.id }, { description: 'create blueprints options 1 and 2', hours: 14, rate: 100.00, project_id: projects.last.id }])
