@@ -15,16 +15,22 @@
  */
  @import "bootstrap";
 body {
-  background-image: url("background.jpg");
-  color: white;
+  // background-image: url("background.jpg");
+  background-color: white;
+  color: #3d495e
 }
+
 .jumbotron {
   background-color: #3d495e;
+  color: white;
 }
 h1, h2 {
   text-align: center;
 }
 a {
+  color: #3d495e;
+}
+.jumbotron a {
   color: white;
 }
 a:hover {

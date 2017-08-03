@@ -12,8 +12,10 @@
 	<% end %>
 </ul>
 
+<% if false %>
 <span id="invoice"><%= link_to "Generate Invoice", client_project_path(@client, @project) %></span></br>
-<%= link_to "HTML invoice", project_invoice_path(@project) %></br>
+<% end %>
+<%= link_to "View Invoice", project_invoice_path(@project)+'.pdf' %></br>
 <%= link_to "Add Job", new_project_job_path(@project) %></br>
 <%= link_to "Edit this Project", edit_client_project_path(@client, @project) %></br>
 <%= link_to "Delete", client_project_path(@client, @project), :data => {:confirm => "Are you sure? This deletes the entire project and can not be undone.", :method => "delete"} %>
