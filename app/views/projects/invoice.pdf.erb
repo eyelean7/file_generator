@@ -1,80 +1,85 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<h1 style="text-align:center">John Martin</h1>
-<h2 style="text-align:center">Structural Engineering, Inc.</h2>
-<div class="row">
-  <div class="col-xs-8">
-    9221 April Lane</br>Mokena, Illinois 60448
+<body style="margin-left:10px; margin-right:10px">
+  <h1 style="text-align:center">John Martin</h1>
+  <h2 style="text-align:center">Structural Engineering, Inc.</h2>
+  <div class="row">
+    <div class="col-xs-8">
+      9221 April Lane</br>Mokena, Illinois 60448
+    </div>
+    <div class="col-xs-4">
+      Phone (708) 479-8133
+    </div>
   </div>
-  <div class="col-xs-4">
-    Phone (708) 479-8133
+  <h2 style="text-align:center; font-family:copperplate">invoice</h2>
+  <div class="row">
+    <div class="col-xs-8">
+      <%= @client.name %></br>
+      <%= @client.billing_address %>
+    </div>
+    <div class="col-xs-4">
+      <%= @date %></br>
+      Job #<%= @job_number %>
+    </div>
   </div>
-</div>
-<h2 style="text-align:center; font-family:copperplate">invoice</h2>
-<div class="row">
-  <div class="col-xs-8">
-    <%= @client.name %></br>
-    <%= @client.billing_address %>
+  </br>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>RE: <%= @project.address %></p>
+    </div>
   </div>
-  <div class="col-xs-4">
-    <%= @date %></br>
-    Job #<%= @job_number %>
+  <div class="row">
+    <div class="col-xs-5">
+      <p>Description of Work</p>
+    </div>
+    <div class="col-xs-2">
+      <p>Quantity</p>
+    </div>
+    <div class="col-xs-2">
+      <p>Rate</p>
+    </div>
+    <div class="col-xs-3">
+      <p>Total Due</p>
+    </div>
   </div>
-</div>
-</br>
-<div class="row">
-  <div class="col-xs-12">
-    <p>RE: <%= @project.address %></p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-5">
-    <p>Description of Work</p>
-  </div>
-  <div class="col-xs-2">
-    <p>Quantity</p>
-  </div>
-  <div class="col-xs-2">
-    <p>Rate</p>
-  </div>
-  <div class="col-xs-3">
-    <p>Total Due</p>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <% if @project.jobs.any? %>
-  <% @project.jobs.each do |job| %>
-  <div class="col-xs-5">
-    <%= job.description %>
-  </div>
-  <div class="col-xs-2">
-    <%= job.hours %>
-  </div>
-  <div class="col-xs-2">
-    <%= job.rate %>
-  </div>
-  <div class="col-xs-3">
-    <% if job.hours && job.rate%>
-    $<%= job.hours*job.rate%>
-    <% else %>
-    $<%= job.rate %>
+  <hr>
+  <div class="row">
+    <% if @project.jobs.any? %>
+    <% @project.jobs.each do |job| %>
+    <div class="col-xs-5">
+      <%= job.description %>
+    </div>
+    <div class="col-xs-2">
+      <%= job.hours %>
+    </div>
+    <div class="col-xs-2">
+      <%= job.rate %>
+    </div>
+    <div class="col-xs-3">
+      <% if job.hours && job.rate%>
+      $<%= job.hours*job.rate%>
+      <% else %>
+      $<%= job.rate %>
+      <% end %>
+    </div>
+    <% end %>
     <% end %>
   </div>
-  <% end %>
-  <% end %>
-</div>
 
-<p>Total Due Upon Receipt..................................................................................$[total due]</p>
-<hr>
 
-<p>Dear <%= @client.name %>,</p>
-<p>This is our invoice for the above-referenced project. Please send a check payable to John Martin Structural Engineering, Inc. for the total due. If you prefer to pay online, we can accept payments electronically
-through Chase Quickpay. The email address to use is: jgorski.jmse@gmail.com.</p>
-<p>It was a pleasure working with you. If you have any questions about this project, or if you are in further need of our assistance, please feel free to call me. Thank you for calling John Martin Structural Engineering.</p>
-<p>Sincerely,</p>
-<p>John Martin Structural Engineering, Inc.</p>
-<p style="font-family: Brush Script MT;
-  font-size: 30pt";>Jean F. Gorski</p>
-<p>Jean F. Gorski</p>
+  </br>
+  <p style="float:left">Total Due Upon Receipt</p><p style="float:right">$<%= @project.total %></p><span><hr style="border-top: dotted 2px; margin-top:12px; margin-right:5px" /></span>
+  <hr>
+
+  <p>Dear <%= @client.name %>,</p>
+  <p>This is our invoice for the above-referenced project. Please send a check payable to John Martin Structural Engineering, Inc. for the total due. If you prefer to pay online, we can accept payments electronically
+  through Chase Quickpay. The email address to use is: jgorski.jmse@gmail.com.</p>
+  <p>It was a pleasure working with you. If you have any questions about this project, or if you are in further need of our assistance, please feel free to call me. Thank you for calling John Martin Structural Engineering.</p>
+  <p>Sincerely,</p>
+  <p>John Martin Structural Engineering, Inc.</p>
+  <p style="font-family: Brush Script MT;
+    font-size: 30pt";>Jean F. Gorski</p>
+  <p>Jean F. Gorski</p>
+
+</body>

@@ -1,8 +1,14 @@
 <h1>Projects</h1>
-<ul>
   <% @projects.each do |project| %>
-    <li><%= link_to "Project "+project.address, client_project_path(project.client, project) %></li>
+  <%= link_to client_project_path(project.client, project) do %>
+  <div class="project">
+    <p><%= "Project "+project.address %></p>
+  </div>
+
   <% end %>
-</ul>
+
+  <% end %>
+
+
 <hr>
 <%= link_to "Select a client to create a new project", clients_path %>
