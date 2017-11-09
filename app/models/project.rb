@@ -8,7 +8,7 @@ class Project < ApplicationRecord
 
   def download
     html = render_to_string(:action => :show, :layout => "pdf_layout.html")
-    pdf = WickedPdf.new.pdf_from_string(html)
+    # pdf = WickedPdf.new.pdf_from_string(html)
 
     send_data(pdf,
       :filename => "my_pdf_name.pdf",

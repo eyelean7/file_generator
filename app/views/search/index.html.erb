@@ -1,6 +1,6 @@
 <h1>Search Results</h1>
 
-<% if @clients.any? %>
+<% if @clients.present? %>
   <h2>Related Clients</h2>
   <ul>
     <% @clients.each do |client| %>
@@ -8,11 +8,14 @@
     <% end %>
   </ul>
 <% end %>
-<% if @projects.any? %>
+<% if @projects.present? %>
   <h2>Related Projects</h2>
   <ul>
     <% @projects.each do |project| %>
       <li><%= link_to project.address, client_project_path(project.client, project) %></li>
     <% end %>
   </ul>
+<% end %>
+<% if !@clents.present? && !@projects.present? %>
+<h2>Sorry, no matches were found.</h2>
 <% end %>

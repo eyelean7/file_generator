@@ -5,12 +5,15 @@
 <h3>Price: $<%= @project.price %></h3>
 <h3>File Name: <%= @project.address %> - <%= @client.name%> </h3>
 
-<h2>Jobs for project:</h2>
-<ul>
+<h3>Jobs for project:</h2>
 	<% @project.jobs.each do |job| %>
-	<li><%= link_to job.description, project_job_path(@project, job) %></li>
+
+		<%= link_to image_tag("edit.png", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
+		<%= link_to image_tag("close.png", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<%= link_to job.description, project_job_path(@project, job) %></br>
+
 	<% end %>
-</ul>
+
 
 <% if false %>
 <span id="invoice"><%= link_to "Generate Invoice", client_project_path(@client, @project) %></span></br>

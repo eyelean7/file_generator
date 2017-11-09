@@ -46,24 +46,24 @@
   <hr>
   <div class="row">
     <% if @project.jobs.any? %>
-    <% @project.jobs.each do |job| %>
-    <div class="col-xs-5">
-      <%= job.description %>
-    </div>
-    <div class="col-xs-2">
-      <%= job.hours %>
-    </div>
-    <div class="col-xs-2">
-      <%= job.rate %>
-    </div>
-    <div class="col-xs-3">
-      <% if job.hours && job.rate%>
-      $<%= job.hours*job.rate%>
-      <% else %>
-      $<%= job.rate %>
+      <% @project.jobs.each do |job| %>
+        <div class="col-xs-5">
+          <%= job.description %>
+        </div>
+        <div class="col-xs-2">
+          <%= job.hours %>
+        </div>
+        <div class="col-xs-2">
+          <%= job.rate %>
+        </div>
+        <div class="col-xs-3">
+          <% if job.hours && job.rate%>
+          $<%= job.hours*job.rate%>
+          <% else %>
+          $<%= job.rate %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-    <% end %>
     <% end %>
   </div>
 

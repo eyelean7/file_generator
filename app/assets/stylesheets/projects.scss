@@ -2,11 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .project {
-  background-color: darkgrey;
+  background-color: white;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 4px solid black;
   width: 25%;
   padding: 5%;
   display: inline-block;
   text-align: center;
+  &:hover {
+    background: linear-gradient(45deg, black, white);
+  }
 }

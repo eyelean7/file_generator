@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Uses `devise` and `bootstrap`. **Need to add versions here**
 
-Things you may want to cover:
+To set up:
+* after cloning, navigate to directory in the terminal and run the following commands:
 
-* Ruby version
+* `bundle install`
 
-* System dependencies
+* `postgres`
 
-* Configuration
+* The above command runs the postgres server (?) from that terminal window so you will need to open a new tab in your terminal window. Then run:
 
-* Database creation
+* `rake db:setup`
 
-* Database initialization
+* `rails s`
 
-* How to run the test suite
+* type 'localhost:3000' in the URL
 
-* Services (job queues, cache servers, search engines, etc.)
+### Known Bugs
+* When you click to generate a PDF the page does not render due to an environment conflict (help?). However, if you go to the navigation bar and delete `.pdf` from the URL, you will see clearly the actual invoice.
 
-* Deployment instructions
-
-* ...
+### Fixed Bugs
