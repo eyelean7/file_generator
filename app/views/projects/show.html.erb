@@ -1,3 +1,11 @@
+<!-- <div class="mask" style="height:100px; background:red;">
+	<table>
+		<tr>
+			<td style="height:10px; background:black; vertical-align:middle;"></td>
+		</tr>
+	</table>
+</div> -->
+
 <h1><%= @project.address %></h1>
 
 <h3>Client: <%= link_to @client.name, client_path(@client) %></h3>
@@ -6,13 +14,18 @@
 <h3>File Name: <%= @project.address %> - <%= @client.name%> </h3>
 
 <h3>Jobs for project:</h2>
-	<% @project.jobs.each do |job| %>
+	<table>
+		<% @project.jobs.each do |job| %>
+			<tr style="display:block; background:red;">
+				<td style="width:70%;"><%= link_to job.description, project_job_path(@project, job) %></td>
+				<td style="width:30%;"><%= link_to image_tag("edit.png", title: "edit job", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
+				<%= link_to image_tag("close.png", title: "delete job job", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Delete this job?' } %></td>
+			</tr>
+		<% end %>
+	</table>
 
-		<%= link_to image_tag("edit.png", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
-		<%= link_to image_tag("close.png", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Are you sure?' } %>
-		<%= link_to job.description, project_job_path(@project, job) %></br>
 
-	<% end %>
+
 
 
 <% if false %>
