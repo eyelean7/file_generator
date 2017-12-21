@@ -1,43 +1,30 @@
-<!-- <div class="mask" style="height:100px; background:red;">
-	<table>
-		<tr>
-			<td style="height:10px; background:black; vertical-align:middle;"></td>
-		</tr>
-	</table>
-</div> -->
-
 <h1><%= @project.address %></h1>
 
-<h3>Client: <%= link_to @client.name, client_path(@client) %></h3>
-<h3>Description: <%= @project.description %></h3>
-<h3>Price: $<%= @project.price %></h3>
-<h3>File Name: <%= @project.address %> - <%= @client.name%> </h3>
-
-<h3>Jobs for project:</h2>
-	<table>
-		<% @project.jobs.each do |job| %>
-			<tr style="display:block; background:red;">
-				<td style="width:70%;"><%= link_to job.description, project_job_path(@project, job) %></td>
-				<td style="width:30%;"><%= link_to image_tag("edit.png", title: "edit job", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
-				<%= link_to image_tag("close.png", title: "delete job job", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Delete this job?' } %></td>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Client: <%= link_to @client.name, client_path(@client) %></h3>
+		<h3>Description: <%= @project.description %></h3>
+		<h3>Price: $<%= @project.price %></h3>
+		<h3>File Name: <%= @project.address %> - <%= @client.name%> </h3>
+		<%= link_to "Edit this Project", edit_client_project_path(@client, @project) %></br>
+		<%= link_to "Delete", client_project_path(@client, @project), :data => {:confirm => "Are you sure? This deletes the entire project and can not be undone.", :method => "delete"} %>
+	</div>
+	<div class="col-md-6">
+		<table>
+			<tr><td class="td-head"><h3>Jobs for project:</h3></td></tr>
+			<% @project.jobs.each do |job| %>
+			<tr>
+				<td class="td-wide"><%= link_to job.description, project_job_path(@project, job) %></td>
+				<td class="td-narrow"><%= link_to image_tag("edit.png", title: "edit job", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
+					<%= link_to image_tag("close.png", title: "delete job job", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Delete this job?' } %></td>
 			</tr>
-		<% end %>
-	</table>
-
-
-
-
+			<% end %>
+		</table>
+			<%= link_to "View Invoice", project_invoice_path(@project)+'.pdf' %></br>
+			<%= link_to "Add Job", new_project_job_path(@project) %></br>
+	</div>
+</div>
 
 <% if false %>
 <span id="invoice"><%= link_to "Generate Invoice", client_project_path(@client, @project) %></span></br>
 <% end %>
-<%= link_to "View Invoice", project_invoice_path(@project)+'.pdf' %></br>
-<%= link_to "Add Job", new_project_job_path(@project) %></br>
-<%= link_to "Edit this Project", edit_client_project_path(@client, @project) %></br>
-<%= link_to "Delete", client_project_path(@client, @project), :data => {:confirm => "Are you sure? This deletes the entire project and can not be undone.", :method => "delete"} %>
-
-<script>
-document.getElementById('invoice').onclick=function(){
-	download("hello world", "<%= @project.address %>.txt", "text/plain");
-}
-</script>

@@ -19,6 +19,7 @@
  $light-base: #ffbfd4;
  $dark-base: #3d495e;
  $gold: #ffb463;
+ $border-style: 2px solid $dark-base;
 
 body {
   // background-image: url("background.jpg");
@@ -53,6 +54,28 @@ a {
     text-decoration: none;
     font-size-adjust: .5;
   }
+}
+
+table {
+  margin: 2em 0 2em 0;
+}
+
+tr {
+  display: block;
+  width: 500px;
+}
+
+td {
+  border-bottom: $border-style;
+}
+.td-head {
+  width: 500px;
+}
+.td-wide {
+  width: 400px;
+}
+.td-narrow {
+  width: 100px;
 }
 
 #signature {
