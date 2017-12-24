@@ -14,9 +14,9 @@
 			<tr><td class="td-head"><h3>Jobs for project:</h3></td></tr>
 			<% @project.jobs.each do |job| %>
 			<tr>
-				<td class="td-wide"><%= link_to job.description, project_job_path(@project, job) %></td>
-				<td class="td-narrow"><%= link_to image_tag("edit.png", title: "edit job", alt: "edit job", class: "nudge-up"), edit_project_job_path(@project, job) %>
-					<%= link_to image_tag("close.png", title: "delete job job", alt: "delete job", class: "nudge-up"), project_job_path(@project, job), method: :delete, data: { confirm: 'Delete this job?' } %></td>
+				<td class="td-wide"><%= job.description %></td>
+				<td class="td-narrow"><%= link_to image_tag("edit.png", title: "edit job", alt: "edit job"), edit_project_job_path(@project, job) %>
+					<%= link_to image_tag("close.png", title: "delete job job", alt: "delete job"), project_job_path(@project, job), method: :delete, data: { confirm: 'Delete this job?' } %></td>
 			</tr>
 			<% end %>
 		</table>

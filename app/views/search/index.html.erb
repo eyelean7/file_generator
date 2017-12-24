@@ -1,5 +1,10 @@
 <h1>Search Results</h1>
 
+
+<% if !(@clients.present? || @projects.present?) %>
+<h2>Sorry, no matches were found.</h2>
+<% else %>
+
 <% if @clients.present? %>
   <h2>Related Clients</h2>
   <ul>
@@ -16,6 +21,4 @@
     <% end %>
   </ul>
 <% end %>
-<% if !@clents.present? && !@projects.present? %>
-<h2>Sorry, no matches were found.</h2>
 <% end %>

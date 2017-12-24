@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/search/' => 'search#index', as: 'search'
   resources :projects, only: [:index] do
     get '/invoice/' => 'projects#invoice', as: 'invoice'
-    resources :jobs
+    resources :jobs, except: [:index, :show]
   end
   resources :clients do
     resources :projects, except: [:index]
