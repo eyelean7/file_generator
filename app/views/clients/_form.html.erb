@@ -2,11 +2,17 @@
 
 
 <%= form_for @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :billing_address %>
-  <%= f.text_field :billing_address %><br>
+<div class="field-group">
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+</div>
+<div class="field-group">
+<%= f.label :billing_address %>
+<%= f.text_field :billing_address %><br>
+</div>
+<div class="field-group">
   <%= f.label :phone %>
   <%= f.text_field :phone %><br>
+</div>
   <%= f.submit  %>
 <% end %>

@@ -2,11 +2,21 @@
 
 
 <%= form_for [@client, @project] do |f| %>
-  <%= f.label :address %>
-  <%= f.text_field :address %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
-  <%= f.label :price %>
-  <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %><br>
+  <div class="field-group">
+    <%= f.label :job_number %>
+    <%= f.text_field :job_number %>
+  </div>
+  <div class="field-group">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field-group">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %>
+  </div>
   <%= f.submit  %>
 <% end %>

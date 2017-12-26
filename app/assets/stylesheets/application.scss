@@ -37,6 +37,10 @@ body {
   border-radius: 0;
 }
 
+.container {
+  margin-bottom: 5rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Arvo', serif;
 }
@@ -99,4 +103,16 @@ td {
 
 #footer {
   float: right;
+}
+
+.field-group {
+  text-align: center;
+  label {
+    vertical-align: top;
+    width: 20%;
+  }
+  input, textarea {
+    width: 50%;
+  }
+
 }

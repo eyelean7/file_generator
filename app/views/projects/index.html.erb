@@ -1,13 +1,11 @@
 <h1>Projects</h1>
+<ul>
   <% @projects.each do |project| %>
-  <%= link_to client_project_path(project.client, project) do %>
-  <div class="project">
-    <p><%= "Project "+project.address %></p>
-  </div>
-
+  <li>
+    <%= link_to project.address, client_project_path(project.client, project) %>
   <% end %>
-
-  <% end %>
+</li>
+</ul>
 
 
 <hr>

@@ -16,8 +16,8 @@ class ProjectsController < ApplicationController
     @date = date.month.to_s+"-"+date.day.to_s+"-"+date.year.to_s
     @project = Project.find(params[:project_id])
     @client = @project.client
-    file_name = "#{@project.id} - #{@client.name} -  #{@project.address}"
-    @job_number = @project.id
+    @job_number = @project.job_number
+    file_name = "#{@project.job_number} - #{@client.name} -  #{@project.address}"
     respond_to do |format|
       format.html
       format.pdf do
@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:address, :description, :price)
+    params.require(:project).permit(:job_number, :address, :description, :price)
   end
 
 end

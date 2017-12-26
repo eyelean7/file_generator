@@ -10,13 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field-group">
     <%= form.label :description %>
     <%= form.text_area :description %><br>
+  </div>
+  <div class="field-group">
     <%= form.label :hours %>
     <%= form.number_field :hours, step: :any %><br>
+  </div>
+  <div class="field-group">
     <%= form.label :rate %>
     <%= form.number_field :rate, step: :any %><br>
+  </div>
     <%= form.submit  %>
 
 <% end %>
