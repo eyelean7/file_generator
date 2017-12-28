@@ -39,6 +39,6 @@ class ClientsController < ApplicationController
 
   private
   def client_params
-    params.require(:client).permit(:name, :billing_address, :phone)
+    params.require(:client).permit(:name, :billing_street, :billing_line2, :billing_city, :billing_state, :billing_zip, :phone)
   end
 end

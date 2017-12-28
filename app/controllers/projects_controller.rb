@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
   def create
     @client = Client.find(params[:client_id])
     @project = @client.projects.new(project_params)
+    @project.write_attribute(:address, @project.street + " " + @project.line2 + " " + @project.city + " " + @project.state + " " + @project.zip)
     if @project.save
       redirect_to client_project_path(@client, @project)
     else
@@ -53,6 +54,8 @@ class ProjectsController < ApplicationController
   def update
     @client = Client.find(params[:client_id])
     @project = Project.find(params[:id])
+    project_info = @client.projects.new(project_params)
+    @project.update_attribute(:address, project_info.street + " " + project_info.line2 + " " + project_info.city + " " + project_info.state + " " + project_info.zip)
     if @project.update(project_params)
       redirect_to client_project_path(@client, @project)
     else
@@ -70,7 +73,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:job_number, :address, :description, :price)
+    params.require(:project).permit(:job_number, :street, :line2, :city, :state, :zip, :address, :description, :price)
   end
 
 end

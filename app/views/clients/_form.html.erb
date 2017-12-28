@@ -4,15 +4,31 @@
 <%= form_for @client do |f| %>
 <div class="field-group">
 <%= f.label :name %>
-<%= f.text_field :name %><br>
+<%= f.text_field :name %>
 </div>
 <div class="field-group">
-<%= f.label :billing_address %>
-<%= f.text_field :billing_address %><br>
+<%= f.label :billing_street %>
+<%= f.text_field :billing_street %>
+</div>
+<div class="field-group">
+<%= f.label :billing_unit %>
+<%= f.text_field :billing_line2 %>
+</div>
+<div class="field-group">
+<%= f.label :billing_city %>
+<%= f.text_field :billing_city %>
+</div>
+<div class="field-group">
+<%= f.label :billing_state %>
+<%= f.text_field :billing_state %>
+</div>
+<div class="field-group">
+<%= f.label :billing_zip %>
+<%= f.text_field :billing_zip %>
 </div>
 <div class="field-group">
   <%= f.label :phone %>
-  <%= f.text_field :phone %><br>
+  <%= f.text_field :phone %>
 </div>
   <%= f.submit  %>
 <% end %>
