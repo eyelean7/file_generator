@@ -16,7 +16,13 @@
   <div class="row">
     <div class="col-xs-8">
       <%= @client.name %></br>
-      <%= @client.billing_address %>
+      <%= @client.billing_street %></br>
+    <% if @client.billing_line2 %>
+      <%= @client.billing_line2 %></br>
+    <% end %>
+      <%= @client.billing_city %></br>
+      <%= @client.billing_state %></br>
+      <%= @client.billing_zip %></br>
     </div>
     <div class="col-xs-4">
       <%= @date %></br>
@@ -26,7 +32,13 @@
   </br>
   <div class="row" style="font-weight:bold">
     <div class="col-xs-12">
-      <p>RE: <%= @project.address %></p>
+      <p>RE: <%= @project.street %></br>
+          <% if !@project.line2.blank? %>
+            <%= @project.line2 %></br>
+          <% end %>
+            <%= @project.city %></br>
+            <%= @project.state %></br>
+            <%= @project.zip %></br></p>
     </div>
   </div>
   <div class="row" style="font-weight:bold; border-bottom:1px solid black">
