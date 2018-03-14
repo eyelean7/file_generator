@@ -17,17 +17,17 @@
  @import url('https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Noto+Sans:400,400i,700,700i');
 
  $light-base: #ffbfd4;
- $dark-base: #3d495e;
- $gold: #ffb463;
+ $dark-base: #5b677c;
+ $JMSEblue: #2830be;
  $border-style: 2px solid $dark-base;
 
 body {
   // background-image: url("background.jpg");
   background-color: white;
   color: $dark-base;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
   a {
-    color: $gold;
+    color: $JMSEblue;
   }
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Arvo', serif;
+  font-family: 'Arvo', Courier, serif;
 }
 
 h1, h2 {
@@ -54,12 +54,15 @@ a {
   transition: font-size-adjust .2s cubic-bezier(.26,.9,.46,1);
   transition: color .2s ease;
   &:hover {
-    color: lighten($dark-base, 50%);
+    color: lighten($JMSEblue, 15%);
     text-decoration: none;
     font-size-adjust: .5;
   }
 }
 
+#nav a:hover {
+  color: darken($JMSEblue, 15%);
+}
 table {
   margin: 2em 0 2em 0;
 }
