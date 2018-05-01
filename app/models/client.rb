@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
+  validates :name, presence: true
   has_many :projects
 
   def self.search(search)

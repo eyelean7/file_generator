@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        # binding.pry
         render pdf: "#{file_name}",
         :disposition => "inline",
         :template => "projects/invoice.pdf.erb",
